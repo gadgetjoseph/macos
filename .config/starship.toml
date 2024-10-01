@@ -1,0 +1,133 @@
+# Starship configuration with Unicode, 256 colors, fluent design, and many icons
+
+format = """
+[](#3A86FF)\
+$os\
+$username\
+$hostname\
+$directory\
+$fill\
+$time\
+$git_branch\
+$git_status\
+$cmd_duration\
+$battery\
+[](#3A86FF)\
+$line_break\
+$line_break\
+$character\
+"""
+
+[os]
+disabled = false
+style = "bold bg:#3A86FF fg:#FFFFFF"
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+Macos = "󰀵"
+Arch = "󰣇"
+
+[username]
+style_user = "bold bg:#004287 fg:#FFFFFF"
+style_root = "bold bg:#004287 fg:#FF006E"
+format = '[ $user ]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[ 󰟀 $hostname ]($style)'
+style = "bold bg:#002369 fg:#FFFFFF"
+disabled = false
+
+[directory]
+style = "bold bg:#002968 fg:#FFFFFF"
+format = "[ 󰉋 $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = "󰊢 "
+style = "bold bg:#FFBE0B fg:#000000"
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = "bold bg:#FFBE0B fg:#000000"
+format = '[$all_status$ahead_behind ]($style)'
+
+[fill]
+symbol = " "
+
+[time]
+disabled = false
+time_format = "%I:%M %p"
+style = "bold bg:#3A86FF fg:#FFFFFF"
+format = '[ 󰥔 $time ]($style)'
+
+[cmd_duration]
+min_time = 500
+format = "[ 󰔟 $duration ]($style)"
+style = "bold bg:#8338EC fg:#FFFFFF"
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+format = "[ $symbol$percentage ]($style)"
+
+[[battery.display]]
+threshold = 30
+style = "bold bg:#FF006E fg:#FFFFFF"
+
+[character]
+success_symbol = "[  ](bold #4682B4)"
+error_symbol = "[  ](bold #FF69B4)"
+ 
+[jobs]
+symbol = "󱜯 "
+style = "bold fg:#FFBE0B"
+format = "[$symbol$number ]($style)"
+
+[status]
+disabled = false
+format = '[$symbol$status ]($style)'
+style = "bold fg:#FF006E"
+symbol = "󰅖 "
+
+# Additional modules with icons
+[memory_usage]
+symbol = "󰍛 "
+format = "[$symbol${ram} ]($style)"
+threshold = 70
+style = "bold fg:#FB5607"
+
+[package]
+symbol = "󰏗 "
+format = "[$symbol$version ]($style)"
+style = "bold fg:#8338EC"
+
+[python]
+symbol = "󰌠 "
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+style = "bold fg:#FFBE0B"
+
+[nodejs]
+symbol = "󰎙 "
+format = "[$symbol($version )]($style)"
+style = "bold fg:#3A86FF"
+
+[ruby]
+symbol = "󰴭 "
+format = "[$symbol($version )]($style)"
+style = "bold fg:#FF006E"
+
+[rust]
+symbol = "󱘗 "
+format = "[$symbol($version )]($style)"
+style = "bold fg:#FB5607"
+
+[docker_context]
+symbol = "󰡨 "
+format = "[$symbol$context ]($style)"
+style = "bold fg:#3A86FF"
